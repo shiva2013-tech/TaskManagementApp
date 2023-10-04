@@ -1,0 +1,36 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+import { OwnerRoutingModule } from './owner-routing.module';
+import { OwnerListComponent } from './owner-list/owner-list.component';
+import { OwnerDetailsComponent } from './owner-details/owner-details.component';
+import { OwnerAccountsComponent } from './owner-details/owner-accounts/owner-accounts.component';
+import { SharedModule } from '../shared/shared.module';
+import { OwnerCreateComponent } from './owner-create/owner-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { DatePipe } from '@angular/common';
+import { AppComponent } from '../app.component';
+import { OwnerUpdateComponent } from './owner-update/owner-update.component';
+import { OwnerDeleteComponent } from './owner-delete/owner-delete.component';
+
+@NgModule({
+  declarations: [
+    OwnerListComponent,
+    OwnerDetailsComponent,
+    OwnerAccountsComponent,
+    OwnerCreateComponent,
+    OwnerUpdateComponent,
+    OwnerDeleteComponent
+  ],
+  imports: [
+    CommonModule,
+    OwnerRoutingModule,
+    SharedModule,
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
+  ],
+  providers: [DatePipe],
+  bootstrap: [AppComponent]
+})
+export class OwnerModule { }
