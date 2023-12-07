@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="offset-10 col-md-2 mt-2"><a [routerLink]="['/task/create']">Create Task</a></div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="row">
+      <div *ngFor="let task of tasks" class="col-md-4 mb-4">
+        <div class="card" [ngClass]="{'active-card': task.isActive, 'expired-card': !task.isActive}">
+          <div class="card-body">
+            <h5 class="card-title">{{ task.title }}</h5>
+            <p class="card-text">{{ task.description }}</p>
+            <p class="card-text">Last Date: {{ task.lastDate | date: 'dd/MM/yyyy' }}</p>
+            <p class="card-text">
+              <span *ngIf="task.isActive; else expiredStatus">Active</span>
+              <ng-template #expiredStatus>Expired</ng-template>
+            </p>
+            <div class="d-grid gap-2">
+              <button type="button" class="btn btn-success" (click)="redirectToUpdatePage(task.id)">Update</button>
+              <button type="button" class="btn btn-danger mt-2" (click)="redirectToDeletePage(task.id)">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

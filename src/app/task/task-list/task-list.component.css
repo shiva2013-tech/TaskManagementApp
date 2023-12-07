@@ -1,0 +1,20 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 10px;
+  width: 300px;
+}
+
+.active-card {
+  background-color: #aaffaa; /* Light green for active tasks */
+}
+
+.expired-card {
+  background-color: #ffaaaa; /* Light red for expired tasks */
+}
+
+.card-status {
+  font-weight: bold;
+  margin-top: 10px;
+}

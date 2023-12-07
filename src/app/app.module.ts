@@ -9,7 +9,7 @@ import { MenuComponent } from './menu/menu.component';
 import {CollapseModule} from 'ngx-bootstrap/collapse';
 import { NotFoundComponent } from './error-pages/not-found/not-found.component';
 import {HttpClientModule} from '@angular/common/http';
-import { OwnerModule } from './owner/owner.module';
+import { TaskModule } from './task/task.module';
 import { InternalServerComponent } from './error-pages/internal-server/internal-server.component';
 
 @NgModule({
@@ -26,7 +26,7 @@ import { InternalServerComponent } from './error-pages/internal-server/internal-
     BrowserAnimationsModule,
     HttpClientModule,
     CollapseModule.forRoot(),
-    OwnerModule
+    TaskModule
   ],
   providers: [],
   bootstrap: [AppComponent]

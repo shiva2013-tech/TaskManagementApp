@@ -1,14 +1,14 @@
 import { Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges } from '@angular/core';
-import { Owner } from '../../_interfaces/owner.model';
+import { Task } from '../../_interfaces/task.model';
 @Directive({
   selector: '[appAppend]'
 })
 export class AppendDirective implements OnChanges {
-  @Input('appAppend') ownerParam: Owner;
+  @Input('appAppend') taskParam: Task;
   constructor(private element: ElementRef, private renderer: Renderer2) { }
   ngOnChanges(changes: SimpleChanges) {
-    if(changes.ownerParam.currentValue){
-      const accNum = changes.ownerParam.currentValue.accounts.length;
+    if(changes.taskParam.currentValue){
+      const accNum = changes.taskParam.currentValue.accounts.length;
       const span = this.renderer.createElement('span');
       const text = this.renderer.createText(` (${accNum}) accounts`);
       this.renderer.appendChild(span, text);

@@ -6,5 +6,8 @@ import { environment } from 'src/environments/environment';
 })
 export class EnvironmentUrlService {
 urlAddress:string = environment.urlAddress;
-  constructor() { }
+
+  constructor() { 
+console.log(this.urlAddress);
+}
 }

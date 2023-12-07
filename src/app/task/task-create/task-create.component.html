@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <form [formGroup]="taskForm" autocomplete="off" novalidate (ngSubmit)="createTask(taskForm.value)">
+    <div class="card card-body bg-light mb-2 mt-2">
+ 
+      <div class="row mb-3">
+        <label for="title" class="col-form-label col-md-2">Title: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="title" id="title" class="form-control" />
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('title') 
+          && hasError('title', 'required')">Name is required</em>
+          <em *ngIf="validateControl('title') 
+          && hasError('title', 'maxlength')">Maximum allowed length is 60 characters.</em>
+        </div>
+      </div>
+ 
+      <div class="mb-3 row">
+        <label for="description" class="col-form-label col-md-2">Description: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="description" id="description" 
+          class="form-control"/>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('description') 
+          && hasError('description', 'required')">Description is required</em>
+        </div>
+      </div>
+
+
+      <div class="mb-3 row">
+        <label for="lastDate" class="col-form-label col-md-2">Last Date: </label>
+        <div class="col-md-5">
+          <input type="text" formControlName="lastDate" id="lastDate" 
+          class="form-control" readonly bsDatepicker/>
+        </div>
+        <div class="col-md-5">
+          <em *ngIf="validateControl('lastDate') 
+          && hasError('lastDate', 'required')">Last Date is required</em>
+        </div>
+      </div>
+
+
+      <br><br>
+ 
+      <div class="mb-3 row">
+          <div class="offset-5 col-md-1">
+              <button type="submit" class="btn btn-info" [disabled]="!taskForm.valid">Save</button>
+          </div>
+          <div class="col-md-1">
+              <button type="button" class="btn btn-danger" (click)="redirectToTaskList()">Cancel</button>
+          </div>
+      </div>
+      
+    </div>
+  </form>
+</div>

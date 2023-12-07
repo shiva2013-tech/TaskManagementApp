@@ -1,6 +1,0 @@
-<tbody>
-  <tr *ngFor="let account of accounts" (click)="onAccountClicked(account)">
-    <td>{{account?.accountType}}</td>
-    <td>{{account?.dateCreated | date: 'dd/MM/yyyy'}}</td>
-  </tr>
-</tbody>
